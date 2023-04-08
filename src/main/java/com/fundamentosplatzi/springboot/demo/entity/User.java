@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="user")
+@Table(name="users")
 public class User {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="id_user",nullable=false,unique=true)
     private long id;
 
@@ -22,10 +22,11 @@ public class User {
     @Column(length = 100)
     private String email;
 
+
     private LocalDate birthDate;
     @OneToMany(mappedBy = "user",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @JsonManagedReference
-    private List<Post> posts=new ArrayList<>();
+    private List<Post> posts =new ArrayList<>();
 
     public User(){
 
@@ -38,7 +39,7 @@ public class User {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -46,7 +47,7 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -54,7 +55,7 @@ public class User {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
