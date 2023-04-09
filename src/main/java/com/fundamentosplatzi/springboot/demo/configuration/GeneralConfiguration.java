@@ -58,7 +58,6 @@ public class GeneralConfiguration {
                 dataSourceBuilder.url(jdbcUrl);
                 dataSourceBuilder.username(username);
                 dataSourceBuilder.password(password);
-gi
         return dataSourceBuilder.build();
     }
 }
