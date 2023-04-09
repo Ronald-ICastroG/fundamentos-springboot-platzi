@@ -65,6 +65,8 @@ public class FundamentosApplication implements CommandLineRunner {
 
 
 	private void getInformationJpqlFromUser(){
+
+/*
 		LOGGER.info("Usuario con el método findByUserEmail "
 				+userRepository.findByUserEmail("julie2@domain.com")
 				.orElseThrow(()->new RuntimeException("No se encontró el usuario")));
@@ -79,6 +81,33 @@ public class FundamentosApplication implements CommandLineRunner {
 
 	LOGGER.info("Usuario con query method findbyEmail and name"+ userRepository.findByEmailAndName("pedri2@domain.com","pedro")
 			.orElseThrow(()->new RuntimeException("Usuario no encontrado")));
+
+
+	userRepository.findByNameLike("%m%")
+			.stream()
+			.forEach(user->LOGGER.info("Usuario findByNameLike "+user));
+
+
+
+	userRepository.findByNameOrEmail("ricardo",null)
+			.stream()
+			.forEach(user->LOGGER.info("Usuario findByNameOrEmail "+user));
+
+*/
+	userRepository.findByBirthDateBetween(LocalDate.of(2021,3,1),LocalDate.of(2023,5,1))
+			.stream()
+			.forEach(user->LOGGER.info("usuario con intervalo de fechas "+user));
+
+
+
+	//userRepository.findByNameLikeOrderByIdDesc("%i%")
+	//		.stream()
+	//		.forEach(user->LOGGER.info("Usuario encontrado por el like y ordenado descendentemenete por el id "+user));
+userRepository.findByNameContainingOrderByIdDesc("i")
+		.stream()
+		.forEach(user->LOGGER.info("Usuario encontrado por el findByNameContainingOrderByIdDesc "+user));
+
+
 
 	}
 
