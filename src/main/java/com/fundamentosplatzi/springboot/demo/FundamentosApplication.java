@@ -107,7 +107,9 @@ userRepository.findByNameContainingOrderByIdDesc("i")
 		.stream()
 		.forEach(user->LOGGER.info("Usuario encontrado por el findByNameContainingOrderByIdDesc "+user));
 
-
+LOGGER.info("El usuario a partir del namedParameter es "+ userRepository.getAllByBirthDateAndEmail(LocalDate.of(2023,4,7),"john@domain.com")
+		.orElseThrow(()->
+				new RuntimeException(("No se encontró a partir del named parameter "))));
 
 	}
 

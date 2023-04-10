@@ -1,11 +1,14 @@
 package com.fundamentosplatzi.springboot.demo.dto;
 
+import java.time.LocalDate;
+import java.util.Locale;
+
 public class UserDto {
     private Long id;
     private String name;
-    private String birthDate;
+    private LocalDate birthDate;
 
-    public UserDto(Long id, String name, String birthDate) {
+    public UserDto(Long id, String name, LocalDate birthDate) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
@@ -27,11 +30,11 @@ public class UserDto {
         this.name = name;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
