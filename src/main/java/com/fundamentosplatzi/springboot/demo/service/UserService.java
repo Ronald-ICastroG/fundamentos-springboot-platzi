@@ -2,6 +2,7 @@ package com.fundamentosplatzi.springboot.demo.service;
 
 import com.fundamentosplatzi.springboot.demo.entity.User;
 import com.fundamentosplatzi.springboot.demo.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class UserService {
         this.userRepository=userRepository;
     }
 
+@Transactional
 public void saveTransactional(List<User> users){
         users.stream()
                 .peek(user->LOG.info("Usuario insertado "+user))
